@@ -1,10 +1,12 @@
 # QN-Paper-Audit-System
-This is a custom software made for SSN College of Engineering, Chennai for the use of Auditing Question Papers meant to be used in various college exams. 
+A project to develop an institute level question paper audit system.
+It generates a method of analysing words used in question papers using Blooms taxonomy. It assesses the percentage of different knowledge levels and generates an Excel SHeet with the analysis.
 
 <h3>Basic Functionality</h3>
 <ul>
    <li>Identifies the knowledge level, keywords/action verbs used in the question paper, course outcome, and marks for each question.</li>
    <li>Checks if all questions follow the given Blooms Taxonomy Levels and if not suggests keywords to be used for the given level.</li>
+   <li>Consolidates percentages of different knowledge levels to an excel sheet</li>
 </ul>
 
 <hr>
