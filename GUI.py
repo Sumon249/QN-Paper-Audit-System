@@ -39,6 +39,52 @@ upper_min_k3 = 0
 SMALLFONT = ("Shruti", 11)
 
 
+def getKLevel(st):
+    x = 0
+    y = 0
+    l1 = st.split("%")
+    print(l1)
+    for n, i in enumerate(l1):
+        if (len(i) > 0 and n == 0):
+            x = int(i[-3:])
+        if (len(i) > 0 and n == 1):
+            y = int(i[-3:])
+    return x, y
+
+def getMarkDict(st):
+
+    st = st.replace(" ", "")
+    l1 = st.split(",")
+    # print(l1)
+    print(l1)
+    val = []
+    ke = []
+    for i in l1:
+        for n, j in enumerate(i):
+            if (j == 'm'):
+                num1 = int(i[0:n])
+                print(num1)
+                val.append(num1)
+            if (j == 'x'):
+                num = int(i[n + 1:])
+                print(num)
+                ke.append(num)
+    print(val)
+    print(ke)
+    markslist = list(zip(ke, val))
+    print(markslist)
+    markNumberDict = {}
+    for i, j in markslist:
+        print(i, j)
+        markNumberDict[i] = j
+    return (markNumberDict)
+
+def on_close():
+    global status
+    status = False
+    app.destroy()
+
+
 class tkinterApp(Tk):
     def __init__(self, *args, **kwargs):
         Tk.__init__(self, *args, **kwargs)
@@ -188,11 +234,6 @@ class UserPage(Frame):
 
 # Driver Code
 
-def on_close():
-    global status
-    status = False
-    app.destroy()
-
 
 app = tkinterApp()
 
@@ -207,45 +248,6 @@ style.configure('Wild.TRadiobutton', background='#f3969a',font = SMALLFONT)
 
 app.mainloop()
 
-def getKLevel(st):
-    x = 0
-    y = 0
-    l1 = st.split("%")
-    print(l1)
-    for n, i in enumerate(l1):
-        if (len(i) > 0 and n == 0):
-            x = int(i[-3:])
-        if (len(i) > 0 and n == 1):
-            y = int(i[-3:])
-    return x, y
-
-def getMarkDict(st):
-
-    st = st.replace(" ", "")
-    l1 = st.split(",")
-    # print(l1)
-    print(l1)
-    val = []
-    ke = []
-    for i in l1:
-        for n, j in enumerate(i):
-            if (j == 'm'):
-                num1 = int(i[0:n])
-                print(num1)
-                val.append(num1)
-            if (j == 'x'):
-                num = int(i[n + 1:])
-                print(num)
-                ke.append(num)
-    print(val)
-    print(ke)
-    markslist = list(zip(ke, val))
-    print(markslist)
-    markNumberDict = {}
-    for i, j in markslist:
-        print(i, j)
-        markNumberDict[i] = j
-    return (markNumberDict)
 
 
 if(kChoice == '1'):
